@@ -1,1 +1,35 @@
-<p>page-list works!</p>
+<div class="list">
+  <div *ngFor="let drink of items" class="media-item">
+    <img [src]="drink.strDrinkThumb" [alt]="drink.strDrink" />
+    <article class="item-content">
+      <section>
+        <h4>{{ drink.strDrink }}</h4>
+
+        <ng-container *ngIf="drink.strTags">
+          <mat-chip-listbox aria-label="Drink tags">
+            <mat-chip-option
+              *ngFor="let tag of drink.strTags.split(',')"
+              color="primary"
+              >{{ tag }}</mat-chip-option
+            >
+          </mat-chip-listbox>
+        </ng-container>
+
+        <ul>
+          <li *ngFor="let ingredient of drink.ingredients">
+            {{ ingredient.unit }} {{ ingredient.name }}
+          </li>
+        </ul>
+      </section>
+
+      <button
+        mat-mini-fab
+        color="primary"
+        class="item-button"
+        (click)="handleOpenModal(drink)"
+      >
+        <mat-icon> local_drink</mat-icon>
+      </button>
+    </article>
+  </div>
+</div>

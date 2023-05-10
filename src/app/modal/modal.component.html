@@ -1,0 +1,50 @@
+<div class="modal-content">
+  <div class="media">
+    <!-- Carousel -->
+    <img [src]="data.strDrinkThumb" [alt]="data.strDrink" />
+    <!-- <video [src]="data.strVideo" controls ></video> -->
+  </div>
+
+  <section>
+    <h2>{{ data.strDrink }}</h2>
+
+    <ng-container *ngIf="data.strTags">
+      <mat-chip-listbox aria-label="Drink tags">
+        <mat-chip-option
+          *ngFor="let tag of data.strTags.split(',')"
+          color="primary"
+          >{{ tag }}</mat-chip-option
+        >
+      </mat-chip-listbox>
+    </ng-container>
+
+    <div>
+      <h4>Drink information</h4>
+      <ul>
+        <li>
+          <strong>Category</strong>: <span>{{ data.strCategory }}</span>
+        </li>
+        <li>
+          <strong>Drink type</strong>: <span>{{ data.strAlcoholic }}</span>
+        </li>
+        <li>
+          <strong>Glass type</strong>: <span>{{ data.strGlass }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <span><strong>Ingredient</strong></span>
+      <ul>
+        <li *ngFor="let ingredient of data.ingredients">
+          {{ ingredient.unit }} {{ ingredient.name }}
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>How to make</h4>
+      <p>{{ data.strInstructions }}</p>
+    </div>
+  </section>
+</div>

@@ -1,7 +1,24 @@
-<form class="search-bar">
-  <mat-form-field class="full-width">
-    <mat-label>search</mat-label>
-    <input type="search" matInput placeholder="Search a cocktail" />
-    <mat-icon matSuffix>mode_search</mat-icon>
-  </mat-form-field>
+<form class="search-bar" (submit)="handleFormSubmit($event)">
+  <div class="inner" style="text-align: center">
+    <mat-form-field class="full-width" color="primary">
+      <mat-label>search</mat-label>
+      <input
+        type="search"
+        matInput
+        placeholder="Search a cocktail"
+        (input)="handleKeyPress($event)"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button
+      type="button"
+      (click)="handleClick()"
+      mat-flat-button
+      class="random-icon"
+      aria-label="Get a random cocktail"
+      color="primary"
+    >
+      Random cocktail
+    </button>
+  </div>
 </form>

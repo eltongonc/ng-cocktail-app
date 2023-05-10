@@ -1,7 +1,18 @@
-<mat-toolbar>
-  <span>Cocktail search app</span>
-</mat-toolbar>
+<div class="nav-bar">
+  <mat-toolbar color="primary">
+    <span>{{ title }}</span>
+  </mat-toolbar>
+</div>
+
+<app-search-bar
+  (onSubmit)="handleSubmit($event)"
+  (onGetRandom)="handleGetRandom()"
+></app-search-bar>
 
 <div class="container">
-  <app-search-bar></app-search-bar>
+  <h2 *ngIf="drinks.length">Search results</h2>
+  <app-page-list
+    [items]="drinks"
+    (onOpenModal)="openDialog($event)"
+  ></app-page-list>
 </div>

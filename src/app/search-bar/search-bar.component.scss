@@ -1,0 +1,14 @@
+.search-bar {
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20rem;
+
+  .inner {
+    width: 100%;
+    .full-width {
+      width: 100%;
+    }
+  }
+}
